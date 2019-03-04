@@ -1,0 +1,7 @@
+CREATE TABLE Users
+(
+username  VARCHAR (100) PRIMARY KEY  UNIQUE NOT NULL,
+password  VARCHAR (100) NOT NULL,
+user_type VARCHAR (100) NOT NULL,
+salt      VARCHAR(255) NOT NULL
+);
