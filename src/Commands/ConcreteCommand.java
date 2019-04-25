@@ -12,8 +12,9 @@ public abstract class ConcreteCommand extends Command {
 
 	public void consume(String RPC_QUEUE_NAME) {
 		this.RPC_QUEUE_NAME = RPC_QUEUE_NAME;
+		String host = System.getenv("RABBIT_MQ_SERVICE_HOST");
 		ConnectionFactory factory = new ConnectionFactory();
-		factory.setHost("localhost");
+		factory.setHost(host);
 		Connection connection = null;
 		try {
 			connection = factory.newConnection();
@@ -74,7 +75,7 @@ public abstract class ConcreteCommand extends Command {
 			AMQP.BasicProperties props = new AMQP.BasicProperties.Builder().correlationId(requestId)
 					.replyTo(RPC_QUEUE_NAME).build();
 			System.out.println("Sending to db :" + message);
-			channel.basicPublish("", service + "-request", props, message.getBytes());
+			channel.basicPublish("", service + "-request", props, message.getBytes());	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
