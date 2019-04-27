@@ -1,2 +1,2 @@
-POST,/auth/signup,LoginCommand
-POST,/auth/login,SignUpCommand
+POST,/auth/signup/,SignUpCommand
+POST,/auth/login/,LoginCommand
