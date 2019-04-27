@@ -22,7 +22,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>AuthService</mainClass>
+                            <mainClass>Service.AuthService</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
